@@ -18,14 +18,17 @@
 }
 
 #playerContainer {
-	position: relative;
 	height: 100%;
+	max-height: 288px;
+	box-shadow: 0 0 25vh 0 black;
 }
 
 #content {
-	height: 100%;
-	max-height: 256px;
-	box-shadow: 0 0 25vh 0 black;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
 }
 
 #playerImage, #computerImage {
@@ -34,10 +37,17 @@
 	height: auto;
 }
 
-#gameOverText {
-	/* display: none; */
+#gameOverBox {
+	display: none;
 	width: 100%;
+	height: 100%;
+	background-color: #0000007a;
+	position: relative;
+}
+
+#gameOverText {
 	text-align: center;
+	text-shadow: 0 0 40px #6dc1c4;
 }
 
 #buttonActions {
@@ -45,7 +55,8 @@
 }
 
 button {
-	background-color: rgba(34, 34, 34, 0.5);
+	/* background-color: rgba(34, 34, 34, 0.5); */
+	background-color: transparent;
 	color: #d6dadc;
 	border: none;
 	border-bottom: 4px solid #a8e1d5;
@@ -59,6 +70,11 @@ button {
 button:hover {
 	color: #a8e1d5;
 	border-bottom: 4px solid #6dc1c4;
+}
+
+button:disabled {
+	color: #666666;
+	border-bottom: 4px dotted #666666;
 }
 
 #buttonStart {

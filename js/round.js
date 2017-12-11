@@ -3,20 +3,21 @@ class Round {
 
 	constructor() {
 		this.player = new Player('player');
-		this.computer = new Player('computer');
+		this.computer = new AIPlayer('computer');
 
 		$('#buttonStart').click(this.onButtonStart.bind(this));
+		$('#buttonReplay').click(this.onButtonReplay.bind(this));
 		$('#buttonDodge').click(this.onActionCallback.bind(this, 'dodge'));
 		$('#buttonShoot').click(this.onActionCallback.bind(this, 'shoot'));
 		$('#buttonShotgun').click(this.onActionCallback.bind(this, 'shotgun'));
 		$('#buttonReload').click(this.onActionCallback.bind(this, 'reload'));
-
-		this.setGameOverText(null);
 	}
 
 	spawnPlayers() {
 		if (this.player.dead || this.computer.dead)
 			setTimeout(this.showActions.bind(this), 4000);
+		else
+			this.showActions();
 
 		if (this.player.dead) this.player.spawn();
 		if (this.computer.dead) this.computer.spawn();
@@ -26,7 +27,9 @@ class Round {
 		$('#buttonActions').show();
 
 		let shotgun = this.player.ammo === 3;
-		$('#buttonShoot').toggle(!shotgun);
+		let disabled = this.player.ammo === 0;
+
+		$('#buttonShoot').toggle(!shotgun).attr('disabled', disabled);
 		$('#buttonShotgun').toggle(shotgun);
 	}
 
@@ -35,8 +38,8 @@ class Round {
 	}
 
 	evaluateRound() {
-		this.player.evaluateAction(this.computer);
 		this.computer.evaluateAction(this.player);
+		this.player.evaluateAction(this.computer);
 
 		setTimeout(this.evaluateDeaths.bind(this), 2000);
 	}
@@ -54,17 +57,22 @@ class Round {
 	}
 
 	setGameOverText(text) {
-		if (!text) {
-			$('#gameOverText').hide();
-		} else {
-			$('#gameOverText').fadeIn();
-			$('#gameOverText').text(text);
-		}
+		$('#buttonReplay').hide();
+		$('#gameOverBox').fadeIn();
+		$('#gameOverText').text(text);
+
+		setTimeout(() => $('#buttonReplay').show(), 1000);
 	}
 
 	/* Button callbacks */
 	onButtonStart() {
 		$('#buttonStart').hide();
+		this.spawnPlayers();
+	}
+
+	onButtonReplay() {
+		$('#buttonReplay').hide();
+		$('#gameOverBox').fadeOut();
 		this.spawnPlayers();
 	}
 	

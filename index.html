@@ -16,6 +16,7 @@
 		<script src="js/imageCache.js"></script>
 		<script src="js/loader.js"></script>
 		<script src="js/player.js"></script>
+		<script src="js/aiplayer.js"></script>
 		<script src="js/round.js"></script>
 		<script src="js/controller.js"></script>
 	</head>
@@ -29,21 +30,29 @@
 		</div>
 		
 		<!-- The Content Container -->
-		<div id="content" class="center middle">
-			<div id="playerContainer">
-				<img id="playerImage" class="left middle">
-				<img id="computerImage" class="right middle">
-				<div id="gameOverText" class="middle center">DRAW</div>
-				<div class="center middle">
-					<button id="buttonStart">START</button>
-				</div>
+		<div id="content">
+			<div id="playerContainer" class="center middle">
+				<img id="playerImage" class="left middle selectDisable">
+				<img id="computerImage" class="right middle selectDisable">
 				<div id="buttonActions" class="bottom">
 					<button id="buttonDodge" class="action-btn">DODGE</button>
 					<button id="buttonReload" class="action-btn">RELOAD</button>
 					<button id="buttonShoot" class="action-btn">SHOOT</button>
 					<button id="buttonShotgun" class="action-btn">SHOTGUN</button>
 				</div>
+				<div id="gameOverBox">
+					<div id="gameOverText" class="middle center">DRAW</div>
+					
+					<div class="center bottom">
+						<button id="buttonReplay">REPLAY</button>
+					</div>
+				</div>
+				<div class="center middle">
+					<button id="buttonStart">START</button>
+				</div>
 			</div>
+			
 		</div>
+
 	</body>
 </html>
