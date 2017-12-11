@@ -1,0 +1,27 @@
+
+#playerContainer {
+	position: relative;
+	height: 256px;
+}
+
+#playerImage {
+	position: absolute;
+	top: 0;
+	left: 0;
+	max-width: 50%;
+	height: 100%;
+}
+
+#computerImage {
+	position: absolute;
+	top: 0;
+	right: 0;
+	max-width: 50%;
+	height: 100%;
+}
+
+#gameOverText {
+	/* display: none; */
+	width: 100%;
+	text-align: center;
+}

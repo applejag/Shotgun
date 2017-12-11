@@ -29,8 +29,8 @@ class Loader {
 		$('#loaderCount').text(this.imagesCount);
 		
 		if (this.imagesCount === this.imagesLoaded) {
-			$('#content').addClass('loaded');
-			$('#loaderContainer').addClass('loaded');
+			$('#loaderContainer').fadeOut('slow',
+				() => $('#content').fadeIn('slow'));
 
 			if (typeof oncomplete === 'function') oncomplete();
 		}

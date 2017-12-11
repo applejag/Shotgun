@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title></title>
+		<title>Shotgun</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="css/mystyling.css" rel="stylesheet">
-		<link href="css/loader.css" rel="stylesheet">
+
+		<link href="css/pagestyle.css" rel="stylesheet">
+		<link href="css/gamestyle.css" rel="stylesheet">
+		<link href="css/loaderstyle.css" rel="stylesheet">
+
 		<script src="https://code.jquery.com/jquery-3.2.1.min.js"
 		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
 		crossorigin="anonymous"></script>
@@ -26,8 +29,11 @@
 		
 		<!-- The Content Container -->
 		<div id="content">
-			<!-- this should contain the content for the rest of the site -->
-			<h1>Page has been loaded!</h1>
+			<div id="playerContainer">
+				<h1 id="gameOverText"></h1>
+				<img id="playerLeft">
+				<img id="playerRight">
+			</div>
 		</div>
 	</body>
 </html>

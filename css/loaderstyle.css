@@ -1,0 +1,15 @@
+
+/* Hidden by default */
+#content {
+	display: none;
+}
+
+/* Positioning */
+
+#content, #loaderContainer {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
