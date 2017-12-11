@@ -107,3 +107,18 @@ button:disabled {
 	color: #f0d434;
 	border-bottom: 4px solid #f0d434;
 }
+
+#winStreakText, #loseStreakText {
+	font-size: 200%;
+	font-weight: 700;
+}
+
+#winStreakText {
+	display: none;
+	color: #6dc1c4;
+}
+
+#loseStreakText {
+	display: none;
+	color: #666666;
+}

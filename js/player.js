@@ -14,10 +14,11 @@ class Player {
 		this.id = id;
 		this.imgQuery = '#' + id + 'Image';
 		this.imgPrefix = id + "_";
-
+		
 		this.dead = true;
 		this.ammo = 0;
 		this.action = 'none';
+		this.streak = 0;
 	}
 
 	spawn() {
@@ -25,7 +26,8 @@ class Player {
 		this.dead = false;
 		this.ammo = 0;
 		this.action = 'none';
-
+		this.streak = 0;
+		
 		setTimeout(this.drawGun.bind(this), 4000);
 	}
 

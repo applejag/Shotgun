@@ -4,6 +4,7 @@ class Round {
 	constructor() {
 		this.player = new Player('player');
 		this.computer = new AIPlayer('computer');
+		this.streak = 0;
 
 		$('#buttonStart').click(this.onButtonStart.bind(this));
 		$('#buttonReplay').click(this.onButtonReplay.bind(this));
@@ -27,9 +28,10 @@ class Round {
 		$('#buttonActions').show();
 
 		let shotgun = this.player.ammo === 3;
-		let disabled = this.player.ammo === 0;
+		let noShoot = this.player.ammo === 0;
 
-		$('#buttonShoot').toggle(!shotgun).attr('disabled', disabled);
+		$('#buttonShoot').toggle(!shotgun).attr('disabled', noShoot);
+		$('#buttonReload').attr('disabled', shotgun);
 		$('#buttonShotgun').toggle(shotgun);
 	}
 
@@ -48,11 +50,16 @@ class Round {
 		if (this.player.dead) {
 			if (this.computer.dead)
 				this.setGameOverText('DRAW');
-			else
+			else {
 				this.setGameOverText('COMPUTER WINS');
-		} else if (this.computer.dead)
+				this.streak = Math.min(this.streak - 1, -1);
+				this.setWinStreakText();
+			}
+		} else if (this.computer.dead) {
 			this.setGameOverText('PLAYER WINS');
-		else
+			this.streak = Math.max(this.streak + 1, 1);
+			this.setWinStreakText();
+		} else
 			this.showActions();
 	}
 
@@ -62,6 +69,17 @@ class Round {
 		$('#gameOverText').text(text);
 
 		setTimeout(() => $('#buttonReplay').show(), 1000);
+	}
+
+	setWinStreakText() {
+		// its never 0
+		if (this.streak > 0) {
+			$('#winStreakText').show().text('+' + this.streak);
+			$('#loseStreakText').fadeOut();
+		} else {
+			$('#loseStreakText').show().text(this.streak);
+			$('#winStreakText').fadeOut();
+		}
 	}
 
 	/* Button callbacks */
