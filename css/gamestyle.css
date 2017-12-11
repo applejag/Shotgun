@@ -122,3 +122,18 @@ button:disabled {
 	display: none;
 	color: #666666;
 }
+
+.computerBullet {
+	float: right;
+	margin: 16px 16px 0 0;
+}
+
+.playerBullet {
+	float: left;
+	margin: 16px 0 0 16px;
+}
+
+.computerBullet, .playerBullet {
+	box-shadow: 0 0 10px 0 #0000007a;
+}
+

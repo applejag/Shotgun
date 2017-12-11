@@ -21,6 +21,16 @@ class Player {
 		this.streak = 0;
 	}
 
+	updateShellsGraphics() {
+		const yes = 'gifs/shell_yes.png';
+		const no = 'gifs/shell_no.png';
+
+		for (let i = 1; i <= 3; i++) {
+			let src = this.ammo >= i ? yes : no;
+			$(`#${this.id}Bullet${i}`).attr('src', src);
+		}
+	}
+
 	spawn() {
 		this.playAnimation('walk');
 		this.dead = false;
@@ -28,6 +38,7 @@ class Player {
 		this.action = 'none';
 		this.streak = 0;
 		
+		this.updateShellsGraphics();
 		setTimeout(this.drawGun.bind(this), 4000);
 	}
 
@@ -64,7 +75,8 @@ class Player {
 				throw `Unknown action "${this.action}" for player "${this.id}"`;
 				return;
 		}
-		
+
+		this.updateShellsGraphics();
 		this.playAnimation(this.getAnimation(enemy));
 	}
 	
