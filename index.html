@@ -5,8 +5,29 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="css/mystyling.css" rel="stylesheet">
+		<link href="css/loader.css" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		crossorigin="anonymous"></script>
+
+		<script src="js/imageCache.js"></script>
+		<script src="js/loader.js"></script>
+		<script src="js/game.js"></script>
+		<script src="js/controller.js"></script>
 	</head>
 	<body>
-		<h1>Shotgun</h1>
+		<!-- The Progress Bar Container -->
+		<div id="loaderContainer">
+			<h2>Loading images:</h2>
+			<progress id="loader" max="1" value="0">
+				<strong>Loaded <span id="loaderValue">0</span>/<span id="loaderMax">0</span></strong>
+			</progress>
+		</div>
+		
+		<!-- The Content Container -->
+		<div id="content">
+			<!-- this should contain the content for the rest of the site -->
+			<h1>Page has been loaded!</h1>
+		</div>
 	</body>
 </html>
