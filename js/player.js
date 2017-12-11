@@ -22,7 +22,7 @@ class Player {
 	}
 
 	evaluateAction(enemy) {
-		if (enemy.action == 'shotgun')
+		if (enemy.action === 'shotgun')
 			this.dead = true;
 
 		switch (this.action) {
@@ -32,12 +32,12 @@ class Player {
 				break;
 
 			case 'shotgun':
-				if (this.ammo == 3)
+				if (this.ammo === 3)
 					this.ammo = 0;
 				break;
 
 			case 'reload':
-				if (enemy.action == 'shoot' || enemy.action == 'shotgun')
+				if (enemy.action === 'shoot' || enemy.action === 'shotgun')
 					this.dead = true;
 				else if (this.ammo < 3)
 					this.ammo++;
@@ -54,19 +54,19 @@ class Player {
 	}
 
 	getAnimation(enemy) {
-		if (this.action == 'dodge') {
-			if (enemy.action == 'shoot') return 'dodge_bullet';
-			if (enemy.action == 'shotgun') return 'dodge_shotgun';
+		if (this.action === 'dodge') {
+			if (enemy.action === 'shoot') return 'dodge_bullet';
+			if (enemy.action === 'shotgun') return 'dodge_shotgun';
 			return 'dodge_nothing';
 		}
-		if (this.action == 'reload') {
-			if (enemy.action == 'shoot') return 'die';
-			if (enemy.action == 'shotgun') return 'die_shotgun';
+		if (this.action === 'reload') {
+			if (enemy.action === 'shoot') return 'die';
+			if (enemy.action === 'shotgun') return 'die_shotgun';
 			return 'reload';
 		}
-		if (this.action == 'shoot' || this.action == 'shotgun') {
-			if (enemy.action == 'shoot') return 'shoot_dodge';
-			if (enemy.action == 'shotgun') return 'shoot_die';
+		if (this.action === 'shoot' || this.action === 'shotgun') {
+			if (enemy.action === 'shoot') return 'shoot_dodge';
+			if (enemy.action === 'shotgun') return 'shoot_die';
 			return 'shoot';
 		}
 
