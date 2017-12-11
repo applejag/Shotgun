@@ -21,19 +21,17 @@ class Loader {
 	loadAllEvent() {
 		this.imagesLoaded = this.imagesCount;
 		this.setLoadedStatus();
+		
+		$('#loaderContainer').fadeOut('slow',
+			() => $('#content').fadeIn('slow'));
+
+		if (typeof this.oncomplete === 'function') this.oncomplete();
 	}
 
 	setLoadedStatus() {
 		$('#loader').attr('value', this.imagesLoaded);
 		$('#loaderValue').text(this.imagesLoaded);
 		$('#loaderCount').text(this.imagesCount);
-		
-		if (this.imagesCount === this.imagesLoaded) {
-			$('#loaderContainer').fadeOut('slow',
-				() => $('#content').fadeIn('slow'));
-
-			if (typeof oncomplete === 'function') oncomplete();
-		}
 	}
 
 	static getImagePaths() {

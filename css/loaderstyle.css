@@ -6,10 +6,11 @@
 
 /* Positioning */
 
-#content, #loaderContainer {
-	position: absolute;
-	left: 0;
-	top: 0;
-	right: 0;
-	bottom: 0;
+#loaderContainer {
+	left: 20px;
+	right: 20px;
+}
+
+#loader {
+	width: 100%;
 }

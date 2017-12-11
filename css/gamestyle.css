@@ -1,27 +1,93 @@
 
+/*
+
+>> Color scheme
+	lightcyan #a8e1d5
+	cyan #6dc1c4
+	darkcyan #3a9396
+	darkgrey #222222
+	grey #666666
+	lightgrey #d6dadc
+
+*/
+
+#content, #playerContainer {
+	width: 100%;
+	max-width: initial;
+	min-width: initial;
+}
+
 #playerContainer {
 	position: relative;
-	height: 256px;
-}
-
-#playerImage {
-	position: absolute;
-	top: 0;
-	left: 0;
-	max-width: 50%;
 	height: 100%;
 }
 
-#computerImage {
-	position: absolute;
-	top: 0;
-	right: 0;
-	max-width: 50%;
+#content {
 	height: 100%;
+	max-height: 256px;
+	box-shadow: 0 0 25vh 0 black;
+}
+
+#playerImage, #computerImage {
+	max-width: 50%;
+	min-width: initial;
+	height: auto;
 }
 
 #gameOverText {
 	/* display: none; */
 	width: 100%;
 	text-align: center;
+}
+
+#buttonActions {
+	display: none;
+}
+
+button {
+	background-color: rgba(34, 34, 34, 0.5);
+	color: #d6dadc;
+	border: none;
+	border-bottom: 4px solid #a8e1d5;
+	padding: 8px;
+	font-family: Courier New, Courier, monospace;
+	font-size: 120%;
+	font-weight: 600;
+	overflow: hidden;
+}
+
+button:hover {
+	color: #a8e1d5;
+	border-bottom: 4px solid #6dc1c4;
+}
+
+#buttonStart {
+	font-size: 200%;
+}
+
+#gameOverText {
+	font-size: 48px;
+	font-weight: 700;
+	letter-spacing: 6px;
+}
+
+#buttonActions {
+	width: 100%;
+	height: 40px;
+}
+
+.action-btn {
+	width: 30%;
+	max-width: 96px;
+	box-sizing: border-box;
+}
+
+#buttonShotgun {
+	color: #fadc8b;
+	border-bottom: 4px solid #fadc8b;
+}
+
+#buttonShotgun:hover {
+	color: #f0d434;
+	border-bottom: 4px solid #f0d434;
 }

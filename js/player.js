@@ -5,20 +5,32 @@
 	'shotgun'
 	'reload'
 	'dodge'
+	'none' -- only before first action
  */
 
 class Player {
-	static folder = 'gifs/';
 
 	constructor(id) {
+		this.id = id;
 		this.imgQuery = '#' + id + 'Image';
 		this.imgPrefix = id + "_";
 
+		this.dead = true;
+		this.ammo = 0;
+		this.action = 'none';
+	}
+
+	spawn() {
+		this.playAnimation('walk');
 		this.dead = false;
 		this.ammo = 0;
 		this.action = 'none';
 
-		this.playAnimation('walk');
+		setTimeout(this.drawGun.bind(this), 4000);
+	}
+
+	drawGun() {
+		this.playAnimation('draw');
 	}
 
 	evaluateAction(enemy) {
@@ -42,6 +54,13 @@ class Player {
 				else if (this.ammo < 3)
 					this.ammo++;
 				break;
+
+			case 'dodge':
+				break;
+			
+			default:
+				throw `Unknown action "${this.action}" for player "${this.id}"`;
+				return;
 		}
 		
 		this.playAnimation(this.getAnimation(enemy));
@@ -49,7 +68,7 @@ class Player {
 	
 	playAnimation(anim) {
 		if (!anim) return;
-		const path = Player.folder + anim + '.gif';
+		const path = 'gifs/' + this.imgPrefix + anim + '.gif';
 		$(this.imgQuery).attr('src', path);
 	}
 

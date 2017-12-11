@@ -2,8 +2,41 @@
 body {
 	background-color: #222222;
 	color: #d6dadc;
+	font-family: Courier New, Courier, monospace;
 }
 
 h1, h2, h3, h4 {
 	color: white;
+}
+
+.center, .left, .right, .middle, .bottom, .top {
+	position: absolute;
+	margin: auto;
+}
+.center, .left, .right {
+	max-width: max-content;
+	min-width: min-content;
+}
+.middle, .bottom, .top {
+	height: fit-content;
+}
+
+.center {
+	text-align: center;
+}
+
+.center, .left {
+	left: 0;
+}
+
+.center, .right {
+	right: 0;
+}
+
+.middle, .top {
+	top: 0;
+}
+
+.middle, .bottom {
+	bottom: 0;
 }
