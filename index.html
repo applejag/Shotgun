@@ -34,6 +34,7 @@
 		<div id="content">
 			<div id="playerContainer" class="center middle">
 				<img id="playerImage" class="left middle selectDisable">
+				<img id="computerImage" class="right middle selectDisable">
 				<div>
 					<img id="playerBullet1" class="selectDisable playerBullet" src="gifs/shell_no.png">
 					<img id="playerBullet2" class="selectDisable playerBullet" src="gifs/shell_no.png">
@@ -44,23 +45,22 @@
 					<img id="computerBullet2" class="selectDisable computerBullet" src="gifs/shell_no.png">
 					<img id="computerBullet3" class="selectDisable computerBullet" src="gifs/shell_no.png">
 				</div>
-				<img id="computerImage" class="right middle selectDisable">
-				<div id="winStreakText" class="center top"></div>
-				<div id="loseStreakText" class="center top"></div>
-				<div id="buttonActions" class="bottom">
+				<div id="winStreakText" class="selectDisable center top"></div>
+				<div id="loseStreakText" class="selectDisable center top"></div>
+				<div id="buttonActions" class="selectDisable bottom">
 					<button id="buttonDodge" class="action-btn">DODGE</button>
 					<button id="buttonReload" class="action-btn">RELOAD</button>
 					<button id="buttonShoot" class="action-btn">SHOOT</button>
 					<button id="buttonShotgun" class="action-btn">SHOTGUN</button>
 				</div>
 				<div id="gameOverBox">
-					<div id="gameOverText" class="middle center">WHO WON?</div>
+					<div id="gameOverText" class="middle center selectDisable">WHO WON?</div>
 					
-					<div class="center bottom">
+					<div class="center bottom selectDisable">
 						<button id="buttonReplay">REPLAY</button>
 					</div>
 				</div>
-				<div class="center middle">
+				<div class="center middle selectDisable">
 					<button id="buttonStart">START</button>
 				</div>
 			</div>
