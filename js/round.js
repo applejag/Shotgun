@@ -67,14 +67,14 @@ class Round {
 
 		if (winner.action === 'shotgun') this.setGameOverText(`SHOTGUN!<br>${name} WINS`);
 		else this.setGameOverText(`${name} WINS`);
-		
+
 		winner.won();
 	}
 
 	setGameOverText(text) {
 		$('#buttonReplay').hide();
 		$('#gameOverBox').fadeIn();
-		$('#gameOverText').text(text);
+		$('#gameOverText').html(text);
 
 		setTimeout(() => $('#buttonReplay').show(), 1000);
 	}
