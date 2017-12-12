@@ -4,7 +4,6 @@ class Round {
 	constructor() {
 		this.player = new Player('player');
 		this.computer = new AIPlayer('computer');
-		this.streak = 0;
 
 		$('#buttonStart').click(this.onButtonStart.bind(this));
 		$('#buttonReplay').click(this.onButtonReplay.bind(this));
