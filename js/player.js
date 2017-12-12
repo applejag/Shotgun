@@ -18,7 +18,17 @@ class Player {
 		this.dead = true;
 		this.ammo = 0;
 		this.action = 'none';
-		this.streak = 0;
+		this.wins = 0;
+	}
+
+	won() {
+		if (this.wins < 999) this.wins++;
+
+		let numZeros = Math.floor(2 - Math.log10(this.wins));
+		let zeros = '0'.repeat(numZeros);
+
+		$(`#${this.id}WinsZeros`).text(zeros);
+		$(`#${this.id}Wins`).text(this.wins);
 	}
 
 	updateShellsGraphics() {

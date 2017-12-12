@@ -35,6 +35,7 @@
 	max-width: 50%;
 	min-width: initial;
 	height: auto;
+	box-shadow: 0 0 10px 0 black;
 }
 
 #gameOverBox {
@@ -137,3 +138,16 @@ button:disabled {
 	box-shadow: 0 0 10px 0 #0000007a;
 }
 
+.winsText {
+	font-weight: 700;
+	margin: 16px;
+	font-size: 100%;
+}
+
+.winsText > span {
+	font-size: 150%;
+}
+
+.winsTextZeros {
+	color: #666666;
+}

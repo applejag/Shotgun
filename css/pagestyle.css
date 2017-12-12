@@ -3,6 +3,7 @@ body {
 	background-color: #222222;
 	color: #d6dadc;
 	font-family: Courier New, Courier, monospace;
+	font-variant: small-caps;
 }
 
 h1, h2, h3, h4 {

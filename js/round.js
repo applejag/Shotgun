@@ -49,18 +49,26 @@ class Round {
 	evaluateDeaths() {
 		if (this.player.dead) {
 			if (this.computer.dead)
-				this.setGameOverText('DRAW');
-			else {
-				this.setGameOverText('COMPUTER WINS');
-				this.streak = Math.min(this.streak - 1, -1);
-				this.setWinStreakText();
-			}
-		} else if (this.computer.dead) {
-			this.setGameOverText('PLAYER WINS');
-			this.streak = Math.max(this.streak + 1, 1);
-			this.setWinStreakText();
-		} else
+				this.showWinner(null);
+			else
+				this.showWinner(this.computer);
+		} else if (this.computer.dead)
+			this.showWinner(this.player);
+		else
 			this.showActions();
+	}
+
+	showWinner(winner) {
+		if (!winner) {
+			this.setGameOverText('DRAW');
+			return;
+		}
+		let name = winner === this.player ? 'PLAYER' : 'COMPUTER';
+
+		if (winner.action === 'shotgun') this.setGameOverText(`SHOTGUN!<br>${name} WINS`);
+		else this.setGameOverText(`${name} WINS`);
+		
+		winner.won();
 	}
 
 	setGameOverText(text) {

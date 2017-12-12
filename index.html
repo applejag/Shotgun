@@ -33,8 +33,6 @@
 		<!-- The Content Container -->
 		<div id="content">
 			<div id="playerContainer" class="center middle">
-				<img id="playerImage" class="left middle selectDisable">
-				<img id="computerImage" class="right middle selectDisable">
 				<div>
 					<img id="playerBullet1" class="selectDisable playerBullet" src="gifs/shell_no.png">
 					<img id="playerBullet2" class="selectDisable playerBullet" src="gifs/shell_no.png">
@@ -45,8 +43,14 @@
 					<img id="computerBullet2" class="selectDisable computerBullet" src="gifs/shell_no.png">
 					<img id="computerBullet3" class="selectDisable computerBullet" src="gifs/shell_no.png">
 				</div>
-				<div id="winStreakText" class="selectDisable center top"></div>
-				<div id="loseStreakText" class="selectDisable center top"></div>
+				<div class="selectDisable left bottom winsText">WINS<br>
+					<span id="playerWinsZeros" class="winsTextZeros">000</span><span id="playerWins"></span>
+				</div>
+				<div class="selectDisable right bottom winsText">WINS<br>
+					<span id="computerWinsZeros" class="winsTextZeros">000</span><span id="computerWins"></span>
+				</div>
+				<img id="playerImage" class="left middle selectDisable">
+				<img id="computerImage" class="right middle selectDisable">
 				<div id="buttonActions" class="selectDisable bottom">
 					<button id="buttonDodge" class="action-btn">DODGE</button>
 					<button id="buttonReload" class="action-btn">RELOAD</button>
