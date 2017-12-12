@@ -35,7 +35,10 @@ class Loader {
 	}
 
 	static getImagePaths() {
-		var s = [];
+		var s = [
+			'gifs/shell_yes.png',
+			'gifs/shell_no.png',
+		];
 		const prefix = ['computer_', 'player_'];
 		
 		for (var i=prefix.length-1; i>=0; i--) {
